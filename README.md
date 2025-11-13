@@ -178,6 +178,19 @@ sudo systemctl start httpd
 - Verify internet connectivity and route tables
 - Check if public IP address is correctly assigned
 
+## Domain and SSL Configuration
+
+### Using AWS Certificate Manager and Route 53
+
+To secure your static website with HTTPS, follow these steps:
+
+1. **Request a Certificate**: Use AWS Certificate Manager (ACM) to request a public certificate for your domain.
+2. **Validate the Certificate**: Follow the validation steps provided by ACM, which typically involve adding a CNAME record to your domain's DNS settings.
+3. **Configure Route 53**: If you are using Route 53 for DNS management, create an A record that points your domain to the CloudFront distribution or the S3 bucket where your website is hosted.
+4. **Enable HTTPS**: In your CloudFront distribution settings, select the ACM certificate to enable HTTPS for your domain.
+
+This setup ensures that your website is accessible via a secure connection, enhancing security and user trust.
+
 ## Files in This Repository
 
 - `README.md` - Project documentation
